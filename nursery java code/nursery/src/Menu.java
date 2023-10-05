@@ -1,28 +1,51 @@
 import java.util.Scanner;
 
-
-
 public class Menu {
 
-    public boolean initQuestion() {
+    Nursery nursery = new Nursery();
+
+    public void initQuestion() {
         Scanner input = new Scanner(System.in);
         System.out.println("What would you like to choose?");
         System.out.println(" 1 - Add animal");
-        System.out.println(" 2 - Get all animals");
-        System.out.println(" 3 - Print all animals info");
-        System.out.println(" 4 - Remove animal");
+        System.out.println(" 2 - Print all animals info");
+        System.out.println(" 3 - Print animal info");
+        System.out.println(" 4 - Teach animal");
         System.out.println(" 5 - Remove animal");
-        System.out.println(" 6 - Print animal");
-        System.out.println(" 7 - Exit");
+        System.out.println(" 0 - Exit");
+        System.out.print(" You choice is -------> ");
         String choice = input.nextLine();
         if (choice.equals("1")) {
-            Animal animal = new Animal();
-            animal.setAnimalClass();
-            animal.setAnimalName();
-            animal.setAge();
-            animal.setAction();
-            animal.setAnimalType();
-
+            nursery.addAnimal();
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
+        } else if (choice.equals("2")) {
+            nursery.printAllAnimals();
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
+        } else if (choice.equals("3")) {
+            nursery.printAnimal();
+            initQuestion();
+        } else if (choice.equals("4")) {
+            nursery.newAction();
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
+        } else if (choice.equals("5")) {
+            nursery.removeAnimal();
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
+        } else if (choice.equals("0")) {
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println();
+            System.out.println("Leaving the nursery...");;
+        } else {
+            System.out.println("Enter correct answer");
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
         }
+        input.close();
     }
+
 }

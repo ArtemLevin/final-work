@@ -1,43 +1,90 @@
+
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Iterator;
+import java.util.Scanner;
 
-public class Nursery{
-    private List<Animal> animals;
+public class Nursery {
+    ArrayList<Animal> animals = new ArrayList<>();
 
-    public void setAnimalsList() {
-        animals = new ArrayList<>();
-    }
-
-    public void addAnimal(Animal animal) {
+    public void addAnimal() {
+        Animal animal = new Animal();
+        animal.setAnimalClass();
+        animal.setAnimalType();
+        animal.setAnimalName();
+        animal.setAge();
+        animal.setAction();
         animals.add(animal);
     }
 
-    public List<Animal> getAnimals() {
-        return animals;
-    }
 
     public void printAllAnimals() {
-        for (Animal animal : animals) {
-            animal.printInfo();
+        if (!animals.isEmpty()) {
+            System.out.println("Class        Type        Name        Age        Actions");
+            for (Animal animal : animals) {
+                animal.printInfo();
+            }
+        }
+        else{
+            System.out.println("Animal list is empty!");
         }
     }
 
-    public void removeAnimal(Animal animal) {
-        animals.remove(animal);
-    }
-
-    public void printAnimal(Animal animal) {
-        if (animal != null) {
-            animal.printInfo();
+    public void removeAnimal() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Choose from the list below. ");
+        printAllAnimals();
+        System.out.print("Enter animal name to delete from the list ------>  ");
+        String animalName = input.nextLine();
+        Iterator<Animal> iterator = animals.iterator();
+        int counter = 0;
+        while (iterator.hasNext()) {
+            Animal animal = iterator.next();
+            if (animalName.equals(animal.getName())) {
+                System.out.println("Removing " + animal.getName() + "...");
+                counter ++;
+                iterator.remove();
+            }
+        }
+        if (counter == 0){
+            System.out.println("There is no animal with such name!");
         }
     }
 
-    public void savePetToDatabase() {
-        // Здесь можно реализовать сохранение животного в базу данных
+    public void printAnimal() {
+        Scanner input = new Scanner(System.in);
+        System.out.println("Choose from the list below. ");
+        printAllAnimals();
+        if (!(animals.size() == 0)) {
+            System.out.println("Enter animal name to print info");
+            String animalName = input.nextLine();
+            for (Animal animal : animals) {
+                if (animalName.equals(animal.getName())) {
+                    animal.printInfo();
+                }
+            }
+        }
     }
 
-    public boolean isValidPet(String animalClass, String name, int age, String gender, String photoPath, String action, List<String> actionList) {
-        // Проверка правильности введенных данных
-        return true;
+    public void newAction(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Choose from the list below. ");
+        System.out.println();
+        printAllAnimals();
+        System.out.print("Enter animal name to teach ------>  ");
+        String animalName = input.nextLine();
+        Iterator<Animal> iterator = animals.iterator();
+        int counter = 0;
+        while (iterator.hasNext()) {
+            Animal animal = iterator.next();
+            if (animalName.equals(animal.getName())) {
+                animal.setAction();
+                System.out.println("Teaching " + animal.getName() + "...");
+                counter += 1;
+            }
+        }
+        if (counter == 0){
+            System.out.println("There is no animal with such name!");
+        }
     }
+
 }

@@ -6,19 +6,8 @@ public class Parent_class {
     private String animalClass;
     private String name;
     private int age;
-
     public String action;
-    List<String> actionList;
-
-//    public Parent_class(String animalClass, String name, int age, String gender, String photoPath, String action, List<String> actionList) {
-//        this.name = name;
-//        this.age = age;
-//        this.gender = gender;
-//        this.photoPath = photoPath;
-//        this.action = action;
-//        this.animalClass = animalClass;
-//        this.actionList = actionList;
-//    }
+    ArrayList<String> actionList = new ArrayList<>();
 
     public String getAnimalClass() {
         return animalClass;
@@ -38,10 +27,9 @@ public class Parent_class {
                     throw new AnimalClassException("Enter correct animal class");
                 }
             } catch (AnimalClassException e) {
-                System.out.println("Enter correct animal class");
+                System.out.println("Enter correct animal class!");
             }
         }
-        input.close();
     }
 
     public String getName() {
@@ -51,7 +39,7 @@ public class Parent_class {
     public void setAnimalName() {
         Scanner input = new Scanner(System.in);
         boolean Flag = true;
-        while (Flag == true){
+        while (Flag){
             System.out.print("Enter animal name: ");
             String newAnimalName = input.nextLine();
             try {
@@ -62,10 +50,9 @@ public class Parent_class {
                     throw new AnimalNameException("Enter correct animal name");
                 }
             } catch (AnimalNameException e) {
-                System.out.println("Enter correct animal name");
+                System.out.println("Enter correct animal name!");
             }
         }
-        input.close();
     }
 
     public int getAge() {
@@ -76,7 +63,7 @@ public class Parent_class {
         Scanner input = new Scanner(System.in);
         boolean Flag = true;
         while (Flag == true){
-            System.out.print("Enter animal name: ");
+            System.out.print("Enter animal age: ");
             String newAnimalAge = input.nextLine();
             try
             {
@@ -100,7 +87,7 @@ public class Parent_class {
         Scanner input = new Scanner(System.in);
         boolean Flag = true;
         while (Flag == true){
-            System.out.print("Enter animal name: ");
+            System.out.print("Enter animal action: ");
             String newAnimalAction = input.nextLine();
             try {
                 if (!newAnimalAction.isEmpty()) {
@@ -111,24 +98,14 @@ public class Parent_class {
                     throw new AnimalActionException("Enter correct animal action");
                 }
             } catch (AnimalActionException e) {
-                System.out.println("Enter correct animal name");
+                System.out.println("Enter correct animal action!");
             }
         }
-        input.close();
     }
 
-    public void getActionList(){
-        System.out.println("This animal can: ");
-        for (String action : actionList){
-            System.out.println(action);
-        }
-    }
-
-    public void printInfo(){
-        System.out.println(getClass());
-        System.out.println(getName());
-        System.out.println(getAge());
-        System.out.println(getAction());
+    public List<String> getActionList(){
+        System.out.print("This animal can: ");
+        return actionList;
     }
 
 }
