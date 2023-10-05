@@ -88,4 +88,27 @@ public class Nursery {
         }
     }
 
+    public void watchActionsList(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("Choose from the list below. ");
+        System.out.println();
+        printAllAnimals();
+        System.out.print("Enter animal name to watch actions list ------>  ");
+        String animalName = input.nextLine();
+        Iterator<Animal> iterator = animals.iterator();
+        int counter = 0;
+        while (iterator.hasNext()) {
+            Animal animal = iterator.next();
+            if (animalName.equals(animal.getName())) {
+                for (String action: animal.actionList){
+                    System.out.print(action + "    ");
+                }
+                counter += 1;
+            }
+        }
+        if (counter == 0){
+            System.out.println("There is no animal with such name!");
+        }
+    }
+
 }

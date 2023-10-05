@@ -11,7 +11,8 @@ public class Menu {
         System.out.println(" 2 - Print all animals info");
         System.out.println(" 3 - Print animal info");
         System.out.println(" 4 - Teach animal");
-        System.out.println(" 5 - Remove animal");
+        System.out.println(" 5 - Watch animal actions list");
+        System.out.println(" 6 - Remove animal");
         System.out.println(" 0 - Exit");
         System.out.print(" You choice is -------> ");
         String choice = input.nextLine();
@@ -31,6 +32,10 @@ public class Menu {
             System.out.println("------------------------------------------------------------------------");
             initQuestion();
         } else if (choice.equals("5")) {
+            nursery.watchActionsList();
+            System.out.println("------------------------------------------------------------------------");
+            initQuestion();
+        } else if (choice.equals("6")) {
             nursery.removeAnimal();
             System.out.println("------------------------------------------------------------------------");
             initQuestion();
