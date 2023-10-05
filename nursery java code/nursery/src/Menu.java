@@ -1,13 +1,18 @@
-import javax.swing.*;
+import java.util.Scanner;
 
-public class Menu extends JFrame {
-    private JTextField textField;
-    private JButton button;
-    private JCheckBox checkbox;
-    private JComboBox comboBox;
-    private JRadioButton radioButton;
-    private JLabel label;
+public class Menu{
 
+    public boolean initQuestion(){
+        Scanner input = new Scanner(System.in);
+        System.out.println("What would you like to choose?");
+        System.out.println(" 1 - Add animal");
+        System.out.println(" 2 - Get all animals");
+        System.out.println(" 3 - Print all animals info");
+        System.out.println(" 4 - Remove animal");
+        System.out.println(" 5 - Remove animal");
+        System.out.println(" 6 - Print animal");
+        System.out.println(" 7 - Exit");
+    }
     public Menu() {
         pass
     }
