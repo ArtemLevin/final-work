@@ -7,6 +7,7 @@ public class Nursery {
     ArrayList<Animal> animals = new ArrayList<>();
 
     public void addAnimal() {
+        Counter.add();
         Animal animal = new Animal();
         animal.setAnimalClass();
         animal.setAnimalType();
